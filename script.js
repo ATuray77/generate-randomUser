@@ -55,8 +55,6 @@ function displayUser(user) {
 fetchUser();
         
    
-
-
 userBtn.addEventListener('click', fetchUser);
 
 
