@@ -5,12 +5,22 @@ const h1 = document.createElement('h1');
 //function onBtnClick() {
 function fetchUser() {
     showSpinner();
-    fetch('https://randomuser.me/api')
-    .then((r) => r.json())
+    fetch('https://randomuser.me/api1')
+    .then((r) => {
+        if (!r.ok) {
+            throw new Error('Request failed')
+        }
+
+        return r.json()
+    })
     .then((data) => {
-        //console.log(data.results[0].picture)
         hideSpinner();
         displayUser(data.results[0]);
+    })
+    .catch((error) => {
+        hideSpinner();
+        document.querySelector('#user').innerHTML = `
+        <p class="text-xl text-center text-red-500 mb-5">${error}<p>`
     });
 }
 
