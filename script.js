@@ -5,7 +5,7 @@ const h1 = document.createElement('h1');
 //function onBtnClick() {
 function fetchUser() {
     showSpinner();
-    fetch('https://randomuser.me/api1')
+    fetch('https://randomuser.me/api')
     .then((r) => {
         if (!r.ok) {
             throw new Error('Request failed')
